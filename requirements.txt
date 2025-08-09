@@ -1,0 +1,16 @@
+```text
+pandas>=1.5
+numpy>=1.24
+scikit-learn>=1.2
+xgboost>=1.7
+torch>=2.0
+matplotlib
+flask
+requests
+python-dotenv
+ta
+oandapyV20
+alpaca-trade-api
+pyyaml
+joblib
+pytest
