@@ -1,24 +1,22 @@
 FROM python:3.11-slim
 
+# Set working directory
 WORKDIR /app
 
-# Copy only requirements first for caching
+# Copy and install dependencies
 COPY requirements.txt .
-
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy models directory
-COPY models ./models
-
-# Copy src directory
+# Copy entire src folder preserving package structure
 COPY src ./src
 
-# Expose the port Flask uses
+# Expose the port your Flask app runs on
 EXPOSE 5000
 
-# Set environment variable for model path explicitly (optional but safer)
-ENV MODEL_PATH=./models/xgb_model.joblib
+# Set PYTHONPATH so imports like `from src.models.xgb_model import ...` work
+ENV PYTHONPATH=/app
 
-# Run Flask app
+# Run the Flask app
 CMD ["python", "src/api/app.py"]
+
 
