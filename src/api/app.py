@@ -4,7 +4,8 @@ import os
 import pandas as pd
 
 app = Flask(__name__)
-MODEL_PATH = os.getenv('MODEL_PATH', 'models/xgb_model.joblib')
+MODEL_PATH = os.getenv('MODEL_PATH', 'src/models/xgb_model.joblib')
+
 
 model = None
 
