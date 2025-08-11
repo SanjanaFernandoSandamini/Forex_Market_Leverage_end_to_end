@@ -17,6 +17,12 @@ if os.path.exists(MODEL_PATH):
         print(f"Error loading model: {e}")
 else:
     print("Model file not found.")
+@app.route('/')
+def home():
+    return jsonify({
+        'message': 'Forex Leverage API is running',
+        'endpoints': ['/health', '/predict']
+    })
 
 @app.route('/health')
 def health():
